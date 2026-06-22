@@ -23,7 +23,6 @@ I am a Manual Test Engineer with experience in quality assurance and software te
 
 - **IoT Street Light System** - Intelligent street lighting with ThingSpeak monitoring
 - **NextGen Rosad Safety** - Road anomaly detection using Raspberry Pi & YOLO
-- **Task Management App** - Collaborative project management tool
 
 ## Contact
 
