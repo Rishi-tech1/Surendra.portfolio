@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ragimanu Surendra | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --light: #f1f5f9;
+            --gray: #475569;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(14, 165, 233, 0.15);
+            --shadow-hover: 0 20px 40px rgba(14, 165, 233, 0.25);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(180deg, #f8fafc 0%, #e0f2fe 50%, #f0f9ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #14b8a6 100%);
+            color: white;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 200px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-200px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 5px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: white;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left-color: var(--secondary);
+        }
+
+        .timeline-item h3 {
+            color: var(--dark);
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .timeline-item .company {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-item p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 100%);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-card .project-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card .project-image::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+        }
+
+        .project-card .project-info {
+            padding: 1.8rem;
+        }
+
+        .project-card h3 {
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            section {
+                padding: 4rem 5%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item::before {
+                left: 10px;
+            }
+            
+            .timeline-item {
+                margin-left: 40px;
+            }
+            
+            .profile-image {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e0f2fe;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .skills {
+            background: var(--light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience {
+            background: white;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 1.5rem;
+            border-left: 3px solid var(--primary);
+            margin-bottom: 2rem;
+            background: var(--light);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .timeline-item h3 {
+            color: var(--dark);
+        }
+
+        .timeline-item .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .projects {
+            background: var(--light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-card .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-card .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .contact {
+            background: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            section {
+                padding: 3rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">RS</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="profile.jpg" alt="Ragimanu Surendra" class="profile-image">
+            <h1>Ragimanu Surendra</h1>
+            <p class="subtitle">Manual Test Engineer</p>
+            <p class="tagline">Passionate about quality assurance and delivering flawless user experiences</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>I'm a Manual Test Engineer with 6 months of experience in quality assurance and software testing. I specialize in identifying bugs, ensuring software quality, and creating comprehensive test cases. My goal is to deliver flawless user experiences by meticulously validating every aspect of the application.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-clipboard-check"></i>
+                <h3>Manual Testing</h3>
+                <p>Test Case Design,Functional, Regression, Smoke Testing</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-plug"></i>
+                <h3>API Testing</h3>
+                <p>Postman</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>SQL</h3>
+                <p>MySQL</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Front-end Development</h3>
+                <p>HTML, CSS, JavaScript</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3>Python programming</h3>
+               <p>Learning Python fundamentals and building projects to strengthen programming skills.</p>
+            </div>
+            <div class="skill-card">
+                   <i class="fas fa-envelope-open-text"></i>
+                <h3>Digital Marketing</h3>
+              <p>Beginner in digital marketing with hands-on experience creating email campaigns, templates, and audience engagement using Mailchimp.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="date">Sep 2025 - Present</div>
+                <h3>Manual Test Engineer</h3>
+                <p class="company">EjInfotech</p>
+                <p>Executing test cases, identifying and reporting bugs, performing regression and smoke testing, and ensuring software quality through detailed documentation.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">May 2024 - July 2024</div>
+                <h3>IoT Intern</h3>
+                <p class="company">Makeskilled</p>
+                <p>Gained hands-on experience with IoT devices, sensors, and embedded systems. Assisted in building and testing IoT prototypes and learning circuit design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+             <div class="project-card">
+        
+                <div class="project-info">
+                    <h3>Sportzdom Mobile App Testing</h3>
+                    <p>
+Conducted manual testing of the SportZdom mobile application, executing test cases, reporting defects, and validating tournament, team, and match management features to ensure application quality and reliability.
+</p>
+                </div>
+            </div>
+           
+             <div class="project-card">
+        
+                <div class="project-info">
+                    <h3>NextGen Rosad Safety</h3>
+                    <p>An intelligent road anomaly detection system using Raspberry Pi, YOLO object detection, and ultrasonic sensors to identify potholes and road hazards for enhanced driver safety.</p>
+                </div>
+            </div>
+           
+            <div class="project-card">
+            
+                <div class="project-info">
+                    <h3>IoT Street Light System</h3>
+                    <p>An intelligent street lighting system that automatically turns on in darkness and off during daylight. Real-time data like light intensity and power consumption is monitored via ThingSpeak cloud platform.</p>
+                </div>
+            </div>
+           
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p class="section-subtitle">
+        Interested in working together? Feel free to contact me for opportunities, collaborations, or professional discussions.
+    </p>
+
+    <div class="contact-info">
+
+        <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:ragimanusurendra@gmail.com">
+                ragimanusurendra@gmail.com
+            </a>
+        </p>
+
+        <p>
+            <i class="fas fa-phone"></i>
+            <a href="tel:+919573325080">
+                +91 9573325080
+            </a>
+        </p>
+
+        <p>
+            <i class="fas fa-map-marker-alt"></i>
+            Kurnool, Andhra Pradesh, India
+        </p>
+
+        <a href="SURENDRA.FRESHER.pdf" class="btn" download>
+            📄 Download Resume
+        </a>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ragimanu-surendra-4672b32a3"
+               target="_blank"
+               title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a href="https://github.com/Rishi-tech1"
+               target="_blank"
+               title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="mailto:ragimanusurendra@gmail.com"
+               title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+   
+</body>
+</html>
