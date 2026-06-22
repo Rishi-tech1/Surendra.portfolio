@@ -31,7 +31,3 @@ I am a Manual Test Engineer with experience in quality assurance and software te
 - 📱 Phone: +91 9573325080
 - 📍 Location: Kurnool, Andhra Pradesh
 - 🔗 LinkedIn: [LinkedIn Profile](#)
-
-## License
-
-© 2026 Ragimanu Surendra. All rights reserved.
