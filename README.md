@@ -12,7 +12,9 @@ I am a Manual Test Engineer with experience in quality assurance and software te
 - API Testing (Postman)
 - SQL (MySQL)
 - Front-end Development (HTML, CSS, JavaScript)
-- Python (Learning Stage)
+- Python - Learning Python fundamentals and building projects to strengthen programming skills.
+- Digital marketing - Beginner in digital marketing with hands-on experience creating email campaigns, templates, and audience engagement using Mailchimp.
+ 
 
 ## Experience
 
@@ -29,4 +31,4 @@ I am a Manual Test Engineer with experience in quality assurance and software te
 - 📧 Email: ragimanusurendra@gmail.com
 - 📱 Phone: +91 9573325080
 - 📍 Location: Kurnool, Andhra Pradesh
-- 🔗 LinkedIn: [LinkedIn Profile](#)
+- 🔗 LinkedIn: https://www.linkedin.com/in/ragimanu-surendra-4672b32a3
